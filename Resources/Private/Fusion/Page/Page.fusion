@@ -1,0 +1,12 @@
+prototype(Futape.Neos:Page) < prototype(Neos.Neos:Page) {
+    body {
+        javascripts = Neos.Fusion:RawArray {
+            before = Neos.Fusion:Array
+            after = Neos.Fusion:Array
+        }
+
+        @process.prependJavascripts = ${this.javascripts.before + value}
+        @process.appendJavascripts = ${value + this.javascripts.after}
+        @process.appendJavaScripts >
+    }
+}
